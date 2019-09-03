@@ -1,0 +1,45 @@
+﻿<Window x:Class="TrabalhoDesafio.WPF_Compromissos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrabalhoDesafio"
+        mc:Ignorable="d"
+        Title="WPF_Compromissos" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="193*"/>
+            <ColumnDefinition Width="599*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btn_adicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="149" Height="19" Click="btn_adicionar_Click"/>
+        <Button x:Name="btn_remover" Content="Remover" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="149" Height="19"/>
+        <Button x:Name="btn_salvar" Content="Salvar" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="149" Height="23" Click="btn_salvar_Click"/>
+        <Button x:Name="btn_cancelar" Content="Cancelar" Grid.Column="1" HorizontalAlignment="Left" Margin="500,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="89" Height="23"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="20" Text="Titulo: " />
+        <TextBox Grid.Column="1" Grid.Row="1" FontSize="20" Text="{Binding Path=AgendaViewModel.ContatoSelecionado.Nome}"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="20" Text="Local: " />
+        <TextBox Grid.Column="1" Grid.Row="2" FontSize="20" Text="{Binding Path=AgendaViewModel.ContatoSelecionado.Sobrenome}"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" FontSize="20" Text="Data de Inicio: "/>
+        <TextBlock Grid.Column="0" Grid.Row="4" FontSize="20" Text="Data de Termino: "/>
+        <TextBox Grid.Column="1" Grid.Row="4" FontSize="20" Text="{Binding Path=AgendaViewModel.ContatoSelecionado.Telefone}"/>
+        <TextBlock Grid.Column="0" Grid.Row="5" FontSize="20" Text="Contatos: " />
+        <ListView Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Path=AgendaViewModel.ContatoSelecionado.Compromissos}" DisplayMemberPath="Titulo"/>
+
+        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Height="30" Width="579"/>
+        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Height="30" Width="579"/>
+
+        <ListView Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Path=AgendaViewModel.Contatos}" DisplayMemberPath="Nome" SelectedItem="{Binding Path=AgendaViewModel.ContatoSelecionado}"/>
+
+    </Grid>
+</Window>
