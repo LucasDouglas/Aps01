@@ -24,22 +24,26 @@
         <Button x:Name="btn_adicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="149" Height="19" Click="btn_adicionar_Click"/>
         <Button x:Name="btn_remover" Content="Remover" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="149" Height="19"/>
         <Button x:Name="btn_salvar" Content="Salvar" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="149" Height="23" Click="btn_salvar_Click"/>
-        <Button x:Name="btn_cancelar" Content="Cancelar" Grid.Column="1" HorizontalAlignment="Left" Margin="500,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="89" Height="23"/>
+        <Button x:Name="btn_cancelar" Content="Cancelar" Grid.Column="1" HorizontalAlignment="Left" Margin="500,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="89" Height="23" Click="Btn_cancelar_Click"/>
+
+        <Button x:Name="btn_addContato" Content="Add" Grid.Column="1" HorizontalAlignment="Left" Margin="282,16,0,0" Grid.Row="5" VerticalAlignment="Top" Width="29" Height="23" Click="Btn_addContato_Click"/>
 
         <TextBlock Grid.Column="0" Grid.Row="1" FontSize="20" Text="Titulo: " />
-        <TextBox Grid.Column="1" Grid.Row="1" FontSize="20" Text="{Binding Path=AgendaViewModel.ContatoSelecionado.Nome}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" FontSize="20" Text="{Binding Path=CompromissoViewModel.CompromissoSelecionado.Titulo}"/>
         <TextBlock Grid.Column="0" Grid.Row="2" FontSize="20" Text="Local: " />
-        <TextBox Grid.Column="1" Grid.Row="2" FontSize="20" Text="{Binding Path=AgendaViewModel.ContatoSelecionado.Sobrenome}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" FontSize="20" Text="{Binding Path=CompromissoViewModel.CompromissoSelecionado.Local}"/>
         <TextBlock Grid.Column="0" Grid.Row="3" FontSize="20" Text="Data de Inicio: "/>
         <TextBlock Grid.Column="0" Grid.Row="4" FontSize="20" Text="Data de Termino: "/>
-        <TextBox Grid.Column="1" Grid.Row="4" FontSize="20" Text="{Binding Path=AgendaViewModel.ContatoSelecionado.Telefone}"/>
+
         <TextBlock Grid.Column="0" Grid.Row="5" FontSize="20" Text="Contatos: " />
-        <ListView Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Path=AgendaViewModel.ContatoSelecionado.Compromissos}" DisplayMemberPath="Titulo"/>
+        <ListView Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Path=CompromissoViewModel.Contatos}" DisplayMemberPath="Nome" Margin="0,0,322,0" SelectedItem="{Binding Path=CompromissoViewModel.ContatoSelecionado}"/>
+
+        <ListView Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Path=CompromissoViewModel.CompromissoSelecionado.Contatos}" DisplayMemberPath="Nome" Margin="316,0,0,0"/>
 
         <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Height="30" Width="579"/>
         <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Height="30" Width="579"/>
 
-        <ListView Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Path=AgendaViewModel.Contatos}" DisplayMemberPath="Nome" SelectedItem="{Binding Path=AgendaViewModel.ContatoSelecionado}"/>
+        <ListView Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Path=CompromissoViewModel.Compromissos}" DisplayMemberPath="Titulo" SelectedItem="{Binding Path=CompromissoViewModel.CompromissoSelecionado}"/>
 
     </Grid>
 </Window>

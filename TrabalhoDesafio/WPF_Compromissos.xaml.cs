@@ -37,5 +37,15 @@ namespace TrabalhoDesafio
             this.CompromissoViewModel.Salvar();
             this.Close();
         }
+
+        private void Btn_addContato_Click(object sender, RoutedEventArgs e)
+        {
+            this.CompromissoViewModel.AddContato();
+        }
+
+        private void Btn_cancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
